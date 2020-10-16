@@ -1,0 +1,44 @@
+
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/,classpath:/META-NF/resources/,classpath:/resources/,classpath:/public/,classpath:/upload
+    #数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(xmObezrbbktoPMPdsvp+xx1NXN+1A83J83CtoosgDuEXikhYfZCdBdFPndPqumy89ljV3fUW1MlOe0dSQUVyPA==)
+    username: ENC(GTMLq4nKD/9Ki+myjyvfTw==)
+    password: ENC(308hFeldJwF8qMS6Em003A==)
+  #jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: GMT+8
+
+#整合mybatis
+mybatis:
+  #config-location: mybatis-config.xml
+  type-aliases-package: com.bdqn.pojo
+  #mapper-locations: classpath:com/bdqn/dao/*.xml 也可以用注解扫描接口
+  configuration:
+    auto-mapping-behavior: full
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#插件配置
+#pagehelper分页
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+#加密
+jasypt:
+  encryptor:
+    password: 54088 #加盐
+server:
+  port: 8088
